@@ -1,6 +1,6 @@
 # UiConsoleRover
 
-#Installation
-`yarn`
+# Installation
+```yarn```
 ou
-`npm install`
+```npm install```
