@@ -17,7 +17,12 @@ export class Point {
       this._longitude.normalize(point._longitude)
     );
   }
-
+  public GetLatitude(): number{
+    return this._latitude.GetValue();
+  }
+  public getLongitude():number{
+    return this._longitude.GetValue();
+  }
   public incrementLongitude(): Point {
     return new Point(this._latitude, this._longitude.add());
   }

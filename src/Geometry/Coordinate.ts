@@ -12,7 +12,9 @@ export class Coordinate {
         coordinate._value
     );
   }
-
+  public GetValue():number{
+    return this._value;
+  }
   public substract(): Coordinate {
     return new Coordinate(this._value - 1);
   }

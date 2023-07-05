@@ -9,7 +9,12 @@ export class Rover implements RoverInterface {
   constructor(orientation: Orientation, position: Position) {
     this._state = new State(orientation, position);
   }
-
+  GetOrientation():Orientation{
+    return this._state.orientation;
+  }
+  GetPosition():Position{
+    return this._state.position;
+  }
   turnLeft(): State {
     this._state = this._state.counterClockwiseRotation();
     return this._state;

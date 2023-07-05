@@ -1,6 +1,6 @@
 import { Size } from "../Geometry/Size";
-import { Position } from "../Geometry/Position";
 import { Point } from "../Geometry/Point";
+
 
 export class Planet {
   protected readonly _size: Size;
@@ -16,4 +16,9 @@ export class Planet {
   hasObstacles(point: Point): boolean {
     return false;
   }
+  //Pourquoi .getPointMax n'était pas dans t'aille de la planete
+  getSize():Size{
+    return this._size;
+  }
+
 }

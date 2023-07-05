@@ -10,7 +10,12 @@ export class Position {
     this._point = planet.normalize(point);
     this._planet = planet;
   }
-
+  getPoint():Point{
+    return this._point;
+  }
+  getPlanet():Planet{
+    return this._planet;
+  }
   incrementLatitudeIfAvailable(): Position {
     return this.goIfValidPosition(
       new Position(this._point.incrementLatitude(), this._planet)

@@ -9,7 +9,9 @@ export class State {
     this.orientation = orientation;
     this.position = position;
   }
-
+  public getOrientation():string {
+    return this.orientation.toString();
+  }
   public decreasedLatitude(): State {
     return new State(
       this.orientation,
