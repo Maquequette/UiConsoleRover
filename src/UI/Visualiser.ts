@@ -16,7 +16,9 @@ export class visualize {
   //////////////////////////////////////////
   private OBstacleToTODraw: Obstacle[] = generateObstacles(4, 10);
   private RoverToDraw: FakeRover;
-  constructor() {}
+  constructor() {
+    this.RoverToDraw = new FakeRover();
+  }
   BuildVisible(): String {
     // //const pointMax : Point = mapSize.getPointMax();
     // const orientation:Orientation= rover.GetOrientation();
@@ -29,7 +31,6 @@ export class visualize {
     let content: string = "";
     const hauteurplan: number = 10;
     const largeurplan: number = 10;
-    this.RoverToDraw = new FakeRover();
     for (let i: number = 0; i < hauteurplan; i++) {
       for (let j: number = 0; j < largeurplan; j++) {
         content = content + this.DrawAtCoordinate(j, i);
@@ -40,39 +41,41 @@ export class visualize {
   }
 
   private DrawAtCoordinate(X: number, Y: number): String {
-    if(this.IsSomethingThere(this.RoverToDraw.getPosition(),X,Y)){
-        return  this.GetRoverRepresentation(this.RoverToDraw.getOrientation());
+    if (this.IsSomethingThere(this.RoverToDraw.getPosition(), X, Y)) {
+      return this.GetRoverRepresentation(this.RoverToDraw.getOrientation());
     }
-    return this.GetObstacleRepresentation(this.OBstacleToTODraw,X,Y);
+    return this.GetObstacleRepresentation(this.OBstacleToTODraw, X, Y);
 
     // if (!this.RoverToDraw.hasBeenWrited) {
     //     if (IsSomethingThere) {
-            
+
     //     }
     //   return this.DrawRover(this.RoverToDraw.getOrientation());
     // }
     // if(){
 
     // }
-
   }
-  private GetObstacleRepresentation(Obstacles : Obstacle[],X: number, Y: number):String{
-    let representation : string= Symbol.Nothing.toString();
-    Obstacles?.forEach((Obstacle :Obstacle)=>{
-        if(this.IsSomethingThere(Obstacle.getPoint(),X,Y)){
-            representation=  Symbol.Obstacle.toString();
-        }
-    })
+  private GetObstacleRepresentation(
+    Obstacles: Obstacle[],
+    X: number,
+    Y: number
+  ): String {
+    let representation: string = Symbol.Nothing.toString();
+    Obstacles?.forEach((Obstacle: Obstacle) => {
+      if (this.IsSomethingThere(Obstacle.getPoint(), X, Y)) {
+        representation = Symbol.Obstacle.toString();
+      }
+    });
     return representation;
   }
   private GetRoverRepresentation(Orientation: Orientation): String {
-    
     switch (Orientation.toString()) {
       case "North":
         return Symbol.RoverNorth.toString();
       case "South":
         return Symbol.RoverSouth.toString();
-      case "Est":
+      case "East":
         return Symbol.RoverEst.toString();
       case "West":
         return Symbol.RoverWest.toString();
@@ -103,7 +106,7 @@ export class FakeRover {
   private readonly position: Position;
   public hasBeenWrited: Boolean = false;
   constructor() {
-    this.orientation = Orientation.North;
+    this.orientation = Orientation.East;
     this.position = new Position(
       new Point(new Coordinate(1), new Coordinate(5)),
       new Planet(new Size(new Coordinate(10), new Coordinate(10)))
