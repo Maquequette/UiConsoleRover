@@ -10,7 +10,7 @@ import { generateObstacles } from "../utilities/generateObstacles";
 import { Symbol } from "./Symbol";
 // import { Size } from "../Geometry/Size";
 // import { Point } from "../Geometry/Point";
-export class visualize {
+export  class Visualize {
   //////////////////////////////////////////
   //A mettre dans un objet enfant
   //////////////////////////////////////////
@@ -106,9 +106,9 @@ export class FakeRover {
   private readonly position: Position;
   public hasBeenWrited: Boolean = false;
   constructor() {
-    this.orientation = Orientation.East;
+    this.orientation = Orientation.South;
     this.position = new Position(
-      new Point(new Coordinate(1), new Coordinate(5)),
+      new Point(new Coordinate(7), new Coordinate(7)),
       new Planet(new Size(new Coordinate(10), new Coordinate(10)))
     );
   }
